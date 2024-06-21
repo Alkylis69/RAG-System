@@ -8,10 +8,11 @@ The PDF-Chatbot is a Python application that allows users to load a PDF file, pr
 - **Text Splitting**: Split the PDF content into manageable chunks using `RecursiveCharacterTextSplitter`.
 - **Embeddings**: Generate embeddings using `HuggingFaceEmbeddings`.
 - **Vector Database**: Store and retrieve document chunks using `FAISS`.
-- **Query Handling**: Generate and handle queries using `MultiQueryRetriever` and `Ollama` LLM.
+- **Query Handling**: Generate and handle queries using `MultiQueryRetriever` and `Llama3` LLM.
 
 ## Prerequisites
 To run this code, you need to have the following installed:
+- Ollama ver 0.1.45
 - Python 3.6 or later
 - Required Python libraries:
   - `langchain_community`
@@ -78,7 +79,7 @@ This function creates a vector database using `FAISS` to store the document chun
 ```python
 def rag_query(chunk_list, query):
 ```
-This function sets up the LLM, creates a multi-query retriever, and processes the user's query to generate an appropriate response based on the document context.
+This function sets up the LLM Llama3, creates a multi-query retriever, and processes the user's query to generate an appropriate response based on the document context.
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit pull requests for any improvements or bug fixes.
