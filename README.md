@@ -28,58 +28,33 @@ Install the required libraries using pip:
 pip install langchain_community langchain_text_splitters langchain_huggingface langchain_core PyMuPDF faiss
 ```
 
-## Usage
+# PDF Retrieval-Augmented Generation (RAG) System
 
-1. **Clone the Repository**:
+This repository provides an implementation of a multi-modal Retrieval-Augmented Generation (RAG) system using the `langchain` library. It allows for querying PDF documents using language models and advanced retrievers, leveraging the latest embedding models for accurate and context-aware responses.
 
-    ```bash
-    git clone https://github.com/yourusername/PDF-Chatbot.git
-    cd PDF-Chatbot
-    ```
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Dependencies and Installation](#dependencies-and-installation)
+4. [File Overview](#file-overview)
+5. [How to Run](#how-to-run)
+6. [Contributing](#contributing)
 
-2. **Run the Script**: Execute the Python script:
+## **Introduction**
 
-    ```bash
-    python pdf_chatbot.py
-    ```
+Python is a versatile and widely-used programming language, well-suited for handling natural language processing tasks. This repository leverages Python's power to build a Retrieval-Augmented Generation (RAG) system, enabling efficient querying and retrieval of information from large documents.
 
-3. **Provide the PDF File Path**: When prompted, enter the full path to the PDF file you want to load and query.
+## **Features**
 
-4. **Interact with the Chatbot**:
-    - Type your question and press Enter to query the PDF content.
-    - Type `exit` and press Enter to terminate the session.
+- **PDF Loading and Parsing:** Efficiently handles PDF documents, partitions them into chunks, and extracts content.
+- **Embedding Creation:** Supports state-of-the-art models from `HuggingFace` to create embeddings.
+- **Vector Store Integration:** Uses `FAISS` and `Chroma` vector stores to store and retrieve embeddings.
+- **Multi-Query Retrieval:** Enhances retrieval accuracy by generating multiple perspectives of a query.
+- **User Interaction:** Provides a user-friendly interface for querying and generating responses.
 
-## Code Explanation
+## **Dependencies and Installation**
 
-### Loading the PDF
-```python
-def load_pdf(path):
-```
-This function uses `PyMuPDFLoader` to load the PDF document from the specified path.
+Ensure that you have the following libraries installed before running the scripts:
 
-### Splitting the PDF into Chunks
-```python
-def split_pdf(document):
-```
-This function splits the PDF content into chunks of 3000 characters with an overlap of 200 characters to preserve context.
-
-### Generating Embeddings
-```python
-def get_embeddings():
-```
-This function initializes and returns the embedding function using the `HuggingFaceEmbeddings` model.
-
-### Creating the Vector Database
-```python
-def vector_database(chunk_list):
-```
-This function creates a vector database using `FAISS` to store the document chunks with their embeddings.
-
-### Querying the Database
-```python
-def rag_query(chunk_list, query):
-```
-This function sets up the LLM Llama3, creates a multi-query retriever, and processes the user's query to generate an appropriate response based on the document context.
-
-## Contributing
-Contributions are welcome! Please fork the repository and submit pull requests for any improvements or bug fixes.
+```bash
+pip install langchain langchain_community langchain_text_splitters langchain_huggingface faiss-cpu pymupdf unstructured transformers
